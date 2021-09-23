@@ -9,7 +9,7 @@ defmodule PureHTTP.Mixfile do
     [
       app: :pure_http,
       version: @version,
-      elixir: "~> 1.10",
+      elixir: "~> 1.9",
       elixirc_paths: elixirc_paths(Mix.env),
       start_permanent: Mix.env == :prod,
       description: description(),
