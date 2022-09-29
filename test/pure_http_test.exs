@@ -3,12 +3,12 @@ defmodule PureHTTPTest do
 
   import Plug.Conn
 
+  alias Plug.Parsers
   alias PureHTTP, as: HTTP
   alias PureHTTP.Error
   alias PureHTTP.Request
   alias PureHTTP.Response
   alias PureHTTP.TestRequestable
-  alias Plug.Parsers
 
   @moduletag :capture_log
 
@@ -130,6 +130,6 @@ defmodule PureHTTPTest do
 
   defp parse_body(conn) do
     parsers = ~w(urlencoded multipart json)a
-    Parsers.call(conn, Parsers.init(parsers: parsers))
+    Parsers.call(conn, Parsers.init(parsers: parsers, json_decoder: Jason))
   end
 end

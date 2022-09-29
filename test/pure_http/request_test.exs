@@ -18,7 +18,7 @@ defmodule PureHTTP.RequestTest do
 
   property "new/2 does not allow invalid http methods" do
     check all method <- term(),
-            not method in @http_methods do
+            method not in @http_methods do
 
       assert_raise FunctionClauseError, fn ->
         Request.new(method, "http://www.activeprospect.com")
